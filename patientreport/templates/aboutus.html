@@ -1,0 +1,84 @@
+{% extends 'basic.html'%}
+{% load static %}
+{% block title%} About us {% endblock %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container col-md-6">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{%static 'Image/pradip.jpg'%}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <h3 class="card-title"><b></b><u>Er.Pradip Pandit</u><b></b></h3>
+        <p class="card-text">Associate in project with Project Manager and Senior Backend Programmer.</p>
+        <p class="card-text">Contact Gmail: pradippandit026@gmail.com</p>
+        <p class="card-text"><small class="text-muted">Last updated on 2019/12/25</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{%static 'Image/samir.jpg'%}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <h3 class="card-title"><b><u>Er.Samir Maharjan</u></b></h3>
+        <p class="card-text">Associate in project with Senior project Designer and Database Designer.</p>
+          <p class="card-text">Contact Gmail: samir84753@gmail.com</p>
+        <p class="card-text"><small class="text-muted">Last updated on 2019/12/25</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{%static 'Image/soel.jpg'%}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <h3 class="card-title"><b><u>Er.Soel Karki</u></b></h3>
+        <p class="card-text">Associate in Project with Senior Frontend Developer.</p>
+          <p class="card-text">Contact Gmail: karkisoel@gmail.com</p>
+        <p class="card-text"><small class="text-muted">Last updated on 2019/12/25</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+	
+
+	<div class="cta">
+		<div class="cta_background parallax-window" data-parallax="scroll" data-image-src="{% static 'Image/about.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="cta_content text-center">
+                        <h2>Need a personal health advisor?</h2>
+                        <p>If you need any personal health consultant Remember us,We have professional health consultant.</p>
+						<div class="button cta_button"><a href="#">request a plan</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends 'Hospital/hospitalhome.html'%}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block aboutus %}/hospital/home/view/{% endblock %}
+{% block upload %} <li><a href="{% block service %} /chat?query_name={{ number }} {% endblock %}">Chat</a></li>{% endblock %}
+{% block page %}Patient{% endblock %}
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form method="post" action="/patient/home/userdata" class="container" role="form" id="designform" enctype="multipart/form-data" >{% csrf_token %}
+<div class="container-fluid">
+	<div class="col1">
+		<style>
+			.col1 {
+    float: left;
+    width:60%;
+}
+		</style>
+		<h1>What's on your mind?</h1>
+		<textarea  placeholder= "Enter Your Notice! " name="area" rows="2" cols="80" style="color: black;
+	  font-size: 1.3em;
+	  font-style: italic;
+		border:solid 2px;
+		border-radius:4px;
+		"></textarea>
+	</div>
+</div>
+			<div class="col2">
+				<style>
+					.col2 {
+   float:right;
+	margin-top:50px;
+}
+
+				</style>
+
+                    <label for="insert_image">Photo</label>
+                    <input type="file" onchange="readURL(this);" class="form-control-file"  accept="image/gif, image/jpeg, image/png" name="pic">
+                    <img src="#" id="insert_image"/>
+				<input type="checkbox" name="check" value="active" style="height:20px; width:20px; margin-top:9px">Make Sure
+			</div>
+
+</div>
+
+
+			<div class="containr col-md-3" style="margin-left:831px; font-size: 32px; margin-bottom:20px;">
+				<button type="submit" class="btn btn-primary" value="{{ id }}" name="submit">POST</button>
+	    	</div>
+
+</form>
+<br>
+<div class="container" style="margin-bottom:5px;">
+<p>--------------------------------------------------------------------------------------------------------------------------- <b>Today's Story </b>---------------------------------------------------------------------------------------------------------------------------------</p>
+
+</div>
+{% if activity2 %}
+	{% for item in activity2 %}
+
+
+<div class="container my-6" style="margin-bottom:90px;">
+		<div class="text col-ml-4" style="margin-left:70px">
+		<img src="/media/{{item.patientprofile}}" height="40px" width="40px" style="border-radius: 50%;">
+			<font color="black" size="4px"><b><a href="/personal/{{item.postid}}">{{item.username}}</a>👉</b><br><font size="2px" style="margin-left:50px;"> Patient/{{item.uploaddate}}</font></font>
+
+	</div>
+<div class="container-fluid col-md-6">
+	<font size="4px">✍️✍️:</font>{{item.useractivity}}
+	{% if item.meme != 'blank'%}
+	<div class="col-md-6">
+
+		<img src="/media/{{item.meme}}" height="500px" width="500px">
+
+	</div>
+	{% endif %}
+</div>
+</div>
+
+{% endfor %}
+	{% endif %}
+
+
+
+{% if activity1 %}
+	{% for item in activity1 %}
+
+
+<div class="container my-6" style="margin-bottom:90px;">
+		<div class="text col-ml-4" style="margin-left:70px">
+		<img src="/media/{{item.doctorprofile}}" height="40px" width="40px" style="border-radius: 50%;">
+			<font color="black" size="4px"><b><a href="/personal/{{item.postid}}">{{item.username}}</a>👉</b><br><font size="2px" style="margin-left:50px;"> Doctor/{{item.uploaddate}}</font></font>
+
+	</div>
+<div class="container-fluid col-md-6">
+	<font size="4px">✍️✍️:</font>{{item.useractivity}}
+	{% if item.meme != 'blank'%}
+	<div class="col-md-6">
+
+		<img src="/media/{{item.meme}}" height="500px" width="500px">
+
+	</div>
+	{% endif %}
+</div>
+</div>
+
+{% endfor %}
+	{% endif %}
+
+
+
+{% if activity %}
+	{% for item in activity %}
+
+
+<div class="container my-6" style="margin-bottom:90px;">
+		<div class="text col-ml-4" style="margin-left:70px">
+		<img src="/media/{{item.hospitalprofile}}" height="40px" width="40px" style="border-radius: 50%;">
+			<font color="black" size="4px"><b>{{item.username}}👉</b><br><font size="2px" style="margin-left:50px;"> Hospital/{{item.uploaddate}}</font></font>
+
+	</div>
+<div class="container-fluid col-md-6">
+	<font size="4px">✍️✍️:</font>{{item.useractivity}}
+	{% if item.meme != 'blank'%}
+	<div class="col-md-6">
+
+		<img src="/media/{{item.meme}}" height="500px" width="500px">
+
+	</div>
+	{% endif %}
+</div>
+</div>
+
+{% endfor %}
+	{% endif %}
+
+{% endblock %}
+<script src="{% static 'JS/create_account.js' %}"></script>

@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<title>{% block title %}Patient Report Management{% endblock %}</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/bootstrap4/bootstrap.min.css'%}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/main_styles.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/responsive.css'%}">
+<link rel="shortcut icon" href="{% static 'Image\copy.png' %}">
+	{% block css %} {% endblock %}
+</head>
+<body style="{% block back %}background-color:#f3f3f3 {% endblock %}">
+<div class="super_container">
+
+	
+
+	<header class="header trans_200">
+
+		
+		<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+							<div class="top_bar_item"><a href="#">FAQ</a></div>
+							<div class="top_bar_item"><a href="#">Request an Appointment</a></div>
+							<div class="emergencies  d-flex flex-row align-items-center justify-content-start ml-auto">For Emergencies: +977 9843433554</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		{% block header %}
+		
+		<div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<nav class="main_nav ml-auto">
+								<ul>
+									<li><a href="{% block home %}/{% endblock %}">Home</a></li>
+									<li><a href="{% block aboutus %}/aboutus{% endblock %}">About us</a></li>
+									<li><a href="{% block service %}/services{% endblock %}">Services</a></li>
+									<li><a href="{% block news %}/news{% endblock %}">News</a></li>
+									<li><a href="{% block contact %}/contact{% endblock %}">Contact</a></li>
+								</ul>
+							</nav>
+							<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+		
+		<div class="logo_container_outer">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="logo_container">
+								<div class="logo_content d-flex flex-column align-items-start justify-content-center" style="padding-left:4px;">
+									<div class="logo_line"></div>
+									<div class="logo d-flex flex-row align-items-center justify-content-center">
+										<div class="logo_text">Digital<span>Report</span></div>
+										<div class="logo_box">+</div>
+									</div>
+									<div class="logo_sub">Report for Future</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+{% block body %}
+
+{% endblock %}
+{% block footer %}
+	<footer class="footer">
+		<div class="footer_container">
+			<div class="container">
+				<div class="row">
+
+					
+					<div class="col-lg-4 footer_col">
+						<div class="footer_about">
+							<div class="footer_logo_container">
+								<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+									<div class="logo_content">
+										<div class="logo d-flex flex-row align-items-center justify-content-center">
+											<div class="logo_text">Digital<span>Report</span></div>
+											<div class="logo_box">+</div>
+										</div>
+										<div class="logo_sub">Report For Future</div>
+									</div>
+								</a>
+							</div>
+							<div class="footer_about_text">
+								<p>If you have any queries about website please contact us immediately on given Information if not response within 24hrs. GOTo contact and find another contact details.</p>
+							</div>
+							<ul class="footer_about_list">
+								<li><div class="footer_about_icon"><img src="{% static 'Image/phone-call.svg'%}" alt=""></div><span>+977 9843433554</span></li>
+								<li><div class="footer_about_icon"><img src="{% static 'Image/envelope.svg'%}" alt=""></div><span>pradippandit026@gmail.com</span></li>
+								<li><div class="footer_about_icon"><img src="{% static 'Image/placeholder.svg'%}" alt=""></div><span>Balkumari-lalitpur,KTM,Nepal</span></li>
+							</ul>
+						</div>
+					</div>
+
+					
+					<div class="col-lg-4 footer_col">
+						<div class="footer_links footer_column">
+							<div class="footer_title">Useful Links</div>
+							<ul>
+								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="#">Our Partners</a></li>
+								<li><a href="/services/">Services</a></li>
+								<li><a href="/aboutus">About us</a></li>
+								<li><a href="/news">News</a></li>
+								<li><a href="/contact">Contact</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</div>
+					</div>
+
+					
+					<div class="col-lg-4 footer_col">
+						<div class="footer_news footer_column">
+							<div class="footer_title">Useful phone Numbers with Links</div>
+							<ul>
+								<li>
+									<div class="footer_news_title"><a href="https://nams.org.np/">Bir Hospital[New-road]</a></div>
+									<div class="footer_news_date">+977 01-4221119</div>
+								</li>
+								<li>
+									<div class="footer_news_title"><a href="http://www.iom.edu.np/?page_id=182">Teaching Hospital[Maharajung]</a></div>
+									<div class="footer_news_date">+977  01-4412303</div>
+								</li>
+								<li>
+									<div class="footer_news_title"><a href="https://tilganga.org/">Tilganga eye Hospital[Gausala]</a></div>
+									<div class="footer_news_date">+977 01-4493684</div>
+								</li>
+								<li>
+									<div class="footer_news_title"><a href="https://www.nepalambulanceservice.org/">Emergency Ambulance</a></div>
+									<div class="footer_news_date">+977 102</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="copyright_content d-flex flex-lg-row flex-column align-items-lg-center justify-content-start">
+							<div class="cr">
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This is made with NCIT College
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+{% endblock %}
+<script src="{% static 'JS/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'CSS/styles/bootstrap4/popper.js'%}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js'%}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js'%}"></script>
+<script src="{% static 'plugins/easing/easing.js'%}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js'%}"></script>
+<script src="{% static 'JS/custom.js'%}"></script>
+</body>
+</html>

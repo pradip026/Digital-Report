@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+        <meta name="description" content="Chat">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'chat/normalize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'chat/main.css' %}">
+    <script src="{% static 'chat/jquery-3.2.1.min.js' %}"></script>
+
+</head>
+<body>
+    <div class="join-elements">
+        <form class="join-form" style="position: absolute;
+  margin: auto;
+  width: 280px;
+  height: 120px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;">
+    <input id="room-name-input" type="text" size="100"/><br/>
+    <input id="room-name-submit"  type="button" value="Enter" style="background: #00a79d; color: white;"/>
+        </form>
+    </div>
+    <script type="text/javascript">
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chats/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>

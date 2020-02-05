@@ -1,0 +1,185 @@
+{% extends 'basic.html'%}
+{% load static %}
+{% block title%} Services {% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/services.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/services_responsive.css'%}">
+
+
+{% endblock %}
+{% block body %}
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'Image/services.jpg'%}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title"><span>DigitalReport</span> Services</div>
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="/">Home</a></li>
+									<li>Services</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Services -->
+
+	<div class="services">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title"><h2>Our Featured Services</h2></div>
+				</div>
+			</div>
+			<div class="row services_row">
+
+				<!-- Service -->
+				<div class="col-lg-4 col-md-6 service_col">
+					<a href="#">
+						<div class="service text-center trans_200">
+							<div class="service_icon"><img class="svg" src="{% static 'Image/service_1.svg' %}" alt=""></div>
+							<div class="service_title trans_200">Free Storage</div>
+							<div class="service_text">
+								<p>We are providing upto 10GB free storage to store your report for scale up you need to buy storage.</p>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Service -->
+				<div class="col-lg-4 col-md-6 service_col">
+					<a href="#">
+						<div class="service text-center trans_200">
+							<div class="service_icon"><img class="svg" src="{% static 'Image/service_2.svg' %}" alt=""></div>
+							<div class="service_title trans_200">Consultant Services</div>
+							<div class="service_text">
+								<p>For your convenience we provide direct and indirect consultant service and provide health tips as well. </p>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Service -->
+				<div class="col-lg-4 col-md-6 service_col">
+					<a href="#">
+						<div class="service text-center trans_200">
+							<div class="service_icon"><img class="svg" src="{% static 'Image/iconhospital.svg' %}" alt=""></div>
+							<div class="service_title trans_200">Hospital Information</div>
+							<div class="service_text">
+								<p>People are always Confuse on choosing hospital related with their problems if you join with us we solve your problems.</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	<!-- Features -->
+
+	<div class="features">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="features_container d-flex flex-row flex-wrap align-items-start justify-content-between">
+
+						<!-- Feature -->
+						<div class="feature">
+							<div class="feature_image"><img src="{% static 'Image/features_1.jpg' %}" alt=""></div>
+							<div class="feature_content">
+								<div class="section_title"><h2>We help you</h2></div>
+								<div class="feature_text">
+									<p>Hey! You are worry about health remember us Now.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Feature -->
+						<div class="feature">
+							<div class="feature_image"><img src="{% static 'Image/features_2.jpg' %}" alt=""></div>
+							<div class="feature_content">
+								<div class="section_title"><h2>Medicine for you</h2></div>
+								<div class="feature_text">
+									<p>type of disease  and  medicine  provided to them.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Feature -->
+						<div class="feature">
+							<div class="feature_image"><img src="{% static 'Image/features_3.jpg' %}" alt=""></div>
+							<div class="feature_content">
+								<div class="section_title"><h2>Amazing technology</h2></div>
+								<div class="feature_text">
+									<p>New Technology </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="text_section">
+		<div class="container">
+			<div class="row">
+
+				<!-- Text Section Image -->
+				<div class="col-lg-5">
+					<div class="text_section_image"><img src="{% static 'Image/text_section.jpg' %}" alt=""></div>
+				</div>
+
+				<!-- Text Section Content -->
+				<div class="col-lg-7">
+					<div class="text_section_content">
+						<div class="section_title"><h2>A great  team to help your needs</h2></div>
+						<div class="text_section_text">
+							<p>We are with Great team to solve your problems.If you want to know about us and our future plan, Please visit us and contact us for feedback. TO know ours plan Read Here..... </p>
+						</div>
+						<div class="button text_section_button"><a href="#">read more</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+            </div>
+
+
+
+
+
+
+	<!-- About -->
+
+	<div class="cta">
+		<div class="cta_background parallax-window" data-parallax="scroll" data-image-src="{% static 'Image/ad.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="cta_content text-center">
+                        <h2>Need a personal health advisor?</h2>
+                        <p>If you need any personal health consultant Remember us,We have professional health consultant.</p>
+						<div class="button cta_button"><a href="#">request a plan</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'basic.html'%}
+{% load static %}
+{% block title %}Report view{% endblock %}
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{%static 'CSS/styles/contact.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/contact_responsive.css'%}">
+
+
+
+{% endblock %}
+
+		{% block header %}
+
+		{% endblock %}
+
+
+
+{% block body %}
+<div class="hom">
+        <style>
+        .hom{
+        height:450px;
+        width:100%;
+        text-align:center;
+
+
+        }
+
+    </style>
+<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{%static 'Image/contact.jpg'%}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+                <div class="tex mb-5">
+
+					<h2><font color="#20d34a"> Files Associates With <font color="#F7743B ">{{ cit }}</font> citizen number</font></h2>
+
+                </div>
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title"><span>Digital Report</span> platform</div>
+							<div class="breadcrumbs">
+								<ul>
+									<li>Do not share Report</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<div style="background-color:#eec9d2;" class="py-2">
+
+
+{% if values %}
+	{% for val in values %}
+		{% if val.Citizennumber == cit %}
+<div class="container col-md-10 mt-3">
+
+    <div  class ="ml-4 px-4 py-3"  style="background-color:#D3F8FF; border-radius: 25px; ">
+		<h1><font color="#F56D8E "><u>{{val.uploaddate}}</u> </font> </h1> <h3><font color="#F7743B "><u>Subject</u>:</font></h3> <p>{{val.Subject}}</p>
+		<h3><font color="#F7743B "><u>Hospital Name</u>: </font></h3> <p><h4>{{ val.Hospitalname  }}</h4>
+
+		<h3><font color="#F7743B "> <u>Description</u>: </font> </h3><p> {{val.Description}} </p>
+        <div class="container col-md-3">
+            <form action="show" method="post" class="col-md-6 mt-4">{% csrf_token %}
+            <input type="submit" class="btn btn-primary" name="{{val.id}}" value="Show Pdf">
+                </form>
+             <form  action="down" method="post" class="col-md-6 pb-1 mt-3">{% csrf_token %}
+        <input type="submit" class="btn btn-primary" name="{{val.id}}" value="Download Pdf">
+             </form></div>
+
+    </div>
+</div>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+
+</div>
+
+
+
+
+
+{% endblock %}
+{% block footer %}
+	<footer class="footer">
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="copyright_content d-flex flex-lg-row flex-column align-items-lg-center justify-content-start">
+							<div class="cr">
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This is made with NCIT College
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+{% endblock %}

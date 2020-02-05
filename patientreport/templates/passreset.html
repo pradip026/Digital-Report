@@ -1,0 +1,20 @@
+{% extends 'login.html' %}
+{% block image %} {% endblock %}
+{% block action %}<form action="/changepassword" method="post">{% csrf_token %}{% endblock %}
+
+    {% block password %}
+    <input type="hidden" name="email" value="{{email}}">
+     {% block email %} {% endblock %}
+    <input type="password" id="password" class="fadeIn third" name="pas1" placeholder="New password" required>
+    <input type="password" id="repassword" class="fadeIn third" name="pas2" placeholder="Re-Enter Password" required>
+    {% endblock %}
+
+{% block identity %} {% endblock %}
+
+    <div class="mt-4">
+        {% block login %}<input type="submit" class="fadeIn fourth" value="Confirm">{% endblock %}
+        </div>
+
+</form>
+
+{% block forget %} {% endblock %}

@@ -1,0 +1,72 @@
+<html>
+{% load static %}
+<head>
+    <title>upload report</title>
+    <style>
+
+
+        @keyframes tipsy {
+  0 {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  background-color: #2e2e31;
+}
+
+a {
+  color: #fffbf1;
+  text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+  font-size: 70px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: -3px;
+  margin-left:70px;
+  position:absolute;
+  top: 50%;
+  left: 850px;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+a:before,
+a:after {
+  content: '';
+  padding: 1.50em .5em;
+  position: absolute;
+  margin-left:-89px;
+  left: 50%;
+  width: 600px;
+  top: 50%;
+  display: block;
+  border: 15px solid red;
+  transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  animation: 10s infinite alternate ease-in-out tipsy;
+}
+
+a:before {
+  border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+a:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
+  box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+}
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/bootstrap4/bootstrap.min.css'%}">
+</head>
+<body>
+<a>Report Saved Successfully !</a>
+<form action="/">
+<div class="container">
+<button type="submit" class="btn btn-primary" style="width:130px; height:50px; font-size:24px; margin-left:1100px; margin-top:355px;">Go Home</button>
+</div>
+</form>
+</body>
+</html>

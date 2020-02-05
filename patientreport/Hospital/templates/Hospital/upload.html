@@ -1,0 +1,228 @@
+<html>
+{% load static %}
+<head>
+
+
+<style>
+*
+{
+    outline: none;
+}
+
+html, body
+{
+    height: 100%;
+    min-height: 100%;
+}
+
+body
+{
+    margin: 4px;
+    background-color: #e6e6e6;
+}
+
+.tb
+{
+    display: table;
+    width: 100%;
+}
+
+.td
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+input, button
+{
+    color: black;
+    font-family: Nunito;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+#cover
+{
+    position:absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 850px;
+    padding: 35px;
+    margin: -83px auto 0 auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+    transform: scale(0.6);
+}
+
+form
+{
+    height: 90px;
+}
+
+input[type="number"]
+{
+    width: 100%;
+    height: 96px;
+    font-size: 60px;
+    line-height: 1;
+}
+
+input[type="number"]::placeholder
+{
+    color: #e16868;
+}
+
+#s-cover
+{
+    width: 1px;
+    padding-left: 35px;
+}
+
+button
+{
+    position: relative;
+    display: block;
+    width: 84px;
+    height: 96px;
+    cursor: pointer;
+}
+
+#s-circle
+{
+    position: relative;
+    top: -8px;
+    left: 0;
+    width: 43px;
+    height: 43px;
+    margin-top: 0;
+    border-width: 15px;
+    border: 15px solid red;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+}
+
+button span
+{
+    position: absolute;
+    top: 68px;
+    left: 43px;
+    display: block;
+    width: 45px;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    transform: rotateZ(52deg);
+    transition: 0.5s ease all;
+}
+
+button span:before, button span:after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 15px;
+    background-color: red;
+    border-radius: 10px;
+    transform: rotateZ(0);
+    transition: 0.5s ease all;
+}
+
+#s-cover:hover #s-circle
+{
+    top: -1px;
+    width: 67px;
+    height: 15px;
+    border-width: 0;
+    background-color: red;
+    border-radius: 20px;
+}
+
+#s-cover:hover span
+{
+    top: 50%;
+    left: 56px;
+    width: 25px;
+    margin-top: -9px;
+    transform: rotateZ(0);
+}
+
+#s-cover:hover button span:before
+{
+    bottom: 11px;
+    transform: rotateZ(52deg);
+}
+
+#s-cover:hover button span:after
+{
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+}
+#s-cover:hover button span:before, #s-cover:hover button span:after
+{
+    right: -6px;
+    width: 40px;
+    background-color: red;
+}
+</style>
+
+
+
+<title>Report Upload</title>
+
+ </head>
+<body>
+<div class="msg">
+    <style>
+        .msg{
+        text-align:center;
+
+        }
+
+    </style>
+{% if messages %}
+<div class="messages" style="background-color:#FF8040">
+    {% for message in messages %}
+	<div class="col-md-6 " style="text-align:center;"> <font size="6px">{{ message }}</font></div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+
+<div class="contain">
+        <style>
+        .contain{
+        margin-top:60px;
+        text-align:center;
+
+        }
+
+    </style>
+
+    <font><h1><font color="#20d34a"> DO You Want To Upload Patient Report ?</font></h1><br><h3><font color="#20d34a"> Please enter citizenship number here...</font></h3></font>
+</div>
+
+<div class="td">
+</div>
+<div id="cover">
+  <form method="post" action="/patient/upload" enctype="multipart/form-data">{% csrf_token %}
+    <div class="tb">
+      <div class="td"><input type="number" placeholder="Enter Citizenship Number" name="number" required></div>
+      <div class="td" id="s-cover">
+        <button type="submit">
+          <div id="s-circle"></div>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

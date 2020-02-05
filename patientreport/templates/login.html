@@ -1,0 +1,50 @@
+{%extends 'Hospital/hospitallogin.html'%}
+{% block form %}
+{% block image %}
+<div class="fadeIn first">
+            {% load static %}
+            <img src="{% static 'Image\loginicon.jpg'%}" id="icon" alt="User Icon"  height=150 width=70/>
+             </div>
+{% endblock %}
+{% block action %}<form action="/valid" method="post">{% csrf_token %}{% endblock %}
+    {% block email %}  <input type="text" id="login" class="fadeIn second" name="email" placeholder="Email" required>{% endblock %}
+     {% block password %} <input type="password" id="password" class="fadeIn third" name="passd" placeholder="password" required>{% endblock %}
+
+{% block identity %}
+                  <div class="fadeIn third mt-4" style="background-color:#D3F8FF;">
+                    <label class="control-label ml-4">Your identity*</label>
+                    <div class="col-md-6 container">
+                        <div class="row" >
+                            <div class="col-sm-5">
+                                <label class="checkbox-inline">
+                                    <input type="radio" class="radio" id="hospitalcheckbox" name="occupation" value="Hospital" required>Hospital
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="checkbox-inline">
+                                    <input type="radio" class="radio" id="doctorcheckbox" value="Doctor" name="occupation" required>Doctor
+                                </label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="checkbox-inline">
+                                    <input type="radio" class="radio" id="patientcheckbox" value="Patient" name="occupation" required>Patient
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+        <div class="mt-4">
+        {% block login %}<input type="submit" class="fadeIn fourth" value="Log In">{% endblock %}
+        </div>
+    </form>
+
+
+{% endblock %}
+{% block forget %}
+<div id="formFooter">
+                <a class="underlineHover" href="/forget/">Forgot Password?</a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,290 @@
+{% extends 'basic.html'%}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{%static 'CSS/styles/contact.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/contact_responsive.css'%}">
+
+{% endblock %}
+
+		{% block header %}
+		<!-- Header Content -->
+		<div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<nav class="main_nav ml-auto">
+								<ul>
+									<li><img src="/media/{{profile}}" height="95" width="95" style="border-radius: 50%;"></li>
+									<li><a href="{% block home %}#{% endblock %}">Home</a></li>
+									<li><a href="{% block aboutus %}/hospital/home/view{% endblock %}">View Report</a></li>
+									{% block upload %}<li><a href="{% block service %}/hospital/home/upload{% endblock %}">Upload Report</a></li>{% endblock %}
+									<li><a href="{% block news %}{% endblock %}"></a></li>
+									<li><a href="{% block contact %}/hospital/home/logout{% endblock %}">Logout</a></li>
+								</ul>
+							</nav>
+							<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+
+
+
+{% block body %}
+
+<div class="home">
+    <style>
+        .home{
+        height:300px;
+        width:100%;
+
+        }
+
+    </style>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{%static 'Image/contact.jpg'%}" data-speed="0.8"></div>
+	      <div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title"><span>Digital Report</span> platform</div>
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="#">{% block page %}Hospital{% endblock %}</a></li>
+									<li>Page</li>
+								</ul>
+							</div>
+							<div style="float:right;,position:fixed-bottom;"><font color="white" size="12px">welcome</font><br><font size="16px" color="#20d34a">{{ name }}</font></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form method="post" action="/hospital/home/userdata" class="container" role="form" id="designform" enctype="multipart/form-data" >{% csrf_token %}
+<div class="container-fluid">
+	<div class="col1">
+		<style>
+			.col1 {
+    float: left;
+    width:60%;
+}
+		</style>
+		<h1>What's on your mind?</h1>
+		<textarea  placeholder= "Enter Your Notice! " name="area" rows="2"; cols="80" style="color: black;
+	  font-size: 1.3em;
+	  font-style: italic;
+		border:solid 2px;
+		border-radius:4px;
+		"></textarea>
+	</div>
+</div>
+			<div class="col2">
+				<style>
+					.col2 {
+   float:right;
+	margin-top:50px;
+}
+
+				</style>
+
+                    <label for="insert_image">Photo</label>
+                    <input type="file" onchange="readURL(this);" class="form-control-file"  accept="image/gif, image/jpeg, image/png" name="pic">
+                    <img src="#" id="insert_image"/>
+				<input type="checkbox" name="check" value="active" style="height:20px; width:20px; margin-top:9px">Make Sure
+			</div>
+
+</div>
+
+
+			<div class="containr col-md-3" style="margin-left:831px; font-size: 32px; margin-bottom:20px;">
+				<button type="submit" class="btn btn-primary" value="{{ id }}" name="submit">POST</button>
+	    	</div>
+
+</form>
+<br>
+<div class="container" style="margin-bottom:5px;">
+<p>--------------------------------------------------------------------------------------------------------------------------- <b>Today's Story </b>---------------------------------------------------------------------------------------------------------------------------------</p>
+
+</div>
+{% if activity %}
+	{% for item in activity %}
+
+<div class="container my-6" style="margin-bottom:90px;">
+		<div class="text col-ml-4" style="margin-left:70px">
+		<img src="/media/{{item.hospitalprofile}}" height="40px" width="40px" style="border-radius: 50%;">
+			<font color="black" size="4px"><b>{{item.username}}👉</b><br><font size="2px" style="margin-left:50px;"> Hospital/{{item.uploaddate}}</font></font>
+
+	</div>
+<div class="container-fluid col-md-6">
+	<font size="4px">✍️✍️:</font>{{item.useractivity}}
+	{% if item.meme != 'blank'%}
+	<div class="col-md-6">
+
+		<img src="/media/{{item.meme}}" height="500px" width="500px">
+
+	</div>
+	{% endif %}
+</div>
+</div>
+{% endfor %}
+	{% endif %}
+
+
+{% if activity1 %}
+	{% for item in activity1 %}
+
+
+<div class="container my-6" style="margin-bottom:90px;">
+		<div class="text col-ml-4" style="margin-left:70px">
+		<img src="/media/{{item.doctorprofile}}" height="40px" width="40px" style="border-radius: 50%;">
+			<font color="black" size="4px"><b>{{item.username}}👉</b><br><font size="2px" style="margin-left:50px;"> Doctor/{{item.uploaddate}}</font></font>
+
+	</div>
+<div class="container-fluid col-md-6">
+	<font size="4px">✍️✍️:</font>{{item.useractivity}}
+	{% if item.meme != 'blank'%}
+	<div class="col-md-6">
+
+		<img src="/media/{{item.meme}}" height="500px" width="500px">
+
+	</div>
+	{% endif %}
+</div>
+</div>
+
+{% endfor %}
+	{% endif %}
+
+
+
+
+{% if activity2 %}
+	{% for item in activity2 %}
+
+
+<div class="container my-6"  style="margin-bottom:90px;">
+		<div class="text col-ml-4" style="margin-left:70px">
+		<img src="/media/{{item.patientprofile}}" height="40px" width="40px" style="border-radius: 50%;">
+			<font color="black" size="4px"><b>{{item.username}}👉</b><br><font size="2px" style="margin-left:50px;"> Patient/{{item.uploaddate}}</font></font>
+
+	</div>
+<div class="container-fluid col-md-6">
+	<font size="4px">✍️✍️:</font>{{item.useractivity}}
+	{% if item.meme != 'blank'%}
+	<div class="col-md-6">
+
+		<img src="/media/{{item.meme}}" height="500px" width="500px">
+
+	</div>
+	{% endif %}
+</div>
+</div>
+
+{% endfor %}
+	{% endif %}
+
+
+
+
+{% endblock %}
+<script src="{% static 'JS/create_account.js' %}"></script>
+
+
+
+{% endblock %}
+{% block footer %}
+	<footer class="footer">
+		<div class="footer_container">
+			<div class="container">
+				<div class="row">
+
+					<!-- Footer - About -->
+					<div class="col-lg-4 footer_col">
+						<div class="footer_about">
+							<div class="footer_logo_container">
+								<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+									<div class="logo_content">
+										<div class="logo d-flex flex-row align-items-center justify-content-center">
+											<div class="logo_text">Digital<span>Report</span></div>
+											<div class="logo_box">+</div>
+										</div>
+										<div class="logo_sub">Report For Future</div>
+									</div>
+								</a>
+							</div>
+							<div class="footer_about_text">
+								<p>If you have any queries about website please contact us immediately on given Information if not response within 24hrs. GOTo contact and find another contact details.</p>
+							</div>
+							<ul class="footer_about_list">
+								<li><div class="footer_about_icon"><img src="{% static 'Image/phone-call.svg'%}" alt=""></div><span>+977 9843433554</span></li>
+								<li><div class="footer_about_icon"><img src="{% static 'Image/envelope.svg'%}" alt=""></div><span>pradippandit026@gmail.com</span></li>
+								<li><div class="footer_about_icon"><img src="{% static 'Image/placeholder.svg'%}" alt=""></div><span>Balkumari-lalitpur,KTM,Nepal</span></li>
+							</ul>
+						</div>
+					</div>
+
+					 <!--Footer - Links -->
+                      <div class="flot">
+                        <style>
+                            .flot{
+                                 position:relative;
+                                  left:500px;
+                                  top:2px;
+                                  padding:4px;
+                            }
+
+
+                        </style>
+					<div class="col-md-12 footer_col">
+						<div class="col-md-12 footer_links footer_column">
+							<div class="col-md-12 footer_title">Useful Links</div>
+							<ul>
+								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="#">Our Partners</a></li>
+								<li><a href="/services/">Services</a></li>
+								<li><a href="/aboutus">About us</a></li>
+								<li><a href="/news">News</a></li>
+								<li><a href="/contact">Contact</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</div>
+					</div>
+                  </div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="copyright_content d-flex flex-lg-row flex-column align-items-lg-center justify-content-start">
+							<div class="cr">
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This is made with NCIT College
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+{% endblock %}

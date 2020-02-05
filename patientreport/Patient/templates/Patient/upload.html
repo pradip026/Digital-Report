@@ -1,0 +1,92 @@
+{% extends 'basic.html ' %}
+{% load static %}
+{% block title %}Report Upload{% endblock %}
+{% block css %}
+
+<link rel="stylesheet" type="text/css" href="{%static 'CSS/styles/contact.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/styles/contact_responsive.css'%}">
+
+
+
+{% endblock %}
+{% block header %}{% endblock %}
+
+{% block body %}
+
+<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{%static 'Image/contact.jpg'%}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+                      <div class="contain">
+
+                          {% if citizens %}
+                          <style>
+                              .contain{
+                              text-align:center;
+                              font-size:40px;
+
+                              }
+
+
+                          </style>
+						  <font color="white">
+                          First Name: {{citizens.patientfirstname}}<br>
+                          Last Name: {{citizens.patientlastname}}<br>
+                          Address: {{citizens.patientaddress}}<br>
+                          Citizen Number: {{citizens.citizennumber}}<br>
+						  </font>
+
+                          {% endif %}
+
+                        <font color="#20d34a">If Details are correct proceed your action...</font>
+
+                      </div>
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title"><span>Patient</span>Details</div>
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="#">Home</a></li>
+									<li>Contact</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% if messages %}
+<div class="messages" style="background-color:#FF8040">
+    {% for message in messages %}
+	<div class="container col-md-4 "> <font size="5px">{{ message }}</font></div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<div class="col-lg-6 my-5 container">
+					<div class="contact_form_container">
+						<form action="post" method="post" id="contact_form" class="contact_form" enctype="multipart/form-data">{% csrf_token %}
+							<div class="row">
+								<div class="col-md-6 input_col">
+									<div class="input_container input_name"><input type="number" class="contact_input" placeholder="citizen number" name="number" required="required"></div>
+								</div>
+								<div class="col-md-6 input_col">
+									<div class="input_container"><input type="text" class="contact_input" placeholder="Hospital Name" name="hospital" required="required"></div>
+								</div>
+							</div>
+							<div class="input_container"><input type="text" class="contact_input" placeholder=" Report Subject" name="subject" required="required"></div>
+							<div class="input_container"><input type="file" class="contact_input" name="file" required="required"></div>
+							<div class="input_container"><textarea class="contact_input contact_text_area" placeholder="Additional Message" name="message" required="required"></textarea></div>
+							<button type="submit" class="btn btn-primary btn-block">Post</button>
+						</form>
+					</div>
+</div>
+{% endblock %}
+
+
+

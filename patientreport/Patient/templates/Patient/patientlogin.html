@@ -1,0 +1,73 @@
+{% extends 'Hospital/hospitallogin.html'%}
+{% load static %}
+{% block form %}
+            <form class="form-horizontal" role="form" id="designform" action="home" method="post" enctype="multipart/form-data">{% csrf_token %}
+                {% block image %}<img src="{% static 'Image/news_2.jpg'%}" id="icon" alt="User Icon"  height=100 width=200 style="border-radius:30px;"/>{% endblock%}
+
+                <h2>Registration</h2>
+                <div class="form-group">
+                    <div>
+                        <input type="text" id="firstName" placeholder="First Name" class="form-control" name="firstname" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" name="lastname" required>
+                    </div>
+                </div>
+                   <div class="form-group">
+                    <div>
+                        <input type="text" id="Address" placeholder="Address*" class="form-control" name="address" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="email" id="email" placeholder="Email" class="form-control" name= "email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="password" id="password" placeholder="Password" class="form-control" name="password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="password" id="password1" placeholder="Re Enter Password" class="form-control" name="repassword" required>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <div>
+                        <input type="password" id="pass" placeholder="PIN for Report[use digits for secure]" class="form-control" name="pin" maxlength="4" minlength="4" required>
+                    </div>
+                </div>
+                <div class="form-group mx-3">
+
+                    <div>
+                        <input type="date" id="birthDate" class="form-control" name="dob" required>
+                    </div>
+                </div>
+                <div class="form-group" style="background-color:#D3F8FF;">
+
+                    <div>
+                        <input type="Number" id="phoneNumber" placeholder="Phone number" class="form-control" name="number" required style="background-color:white;">
+                        <div><span class="help-block">Your phone number won't be disclosed anywhere </span></div>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+
+                    <div>
+                        <input type="number" id="citizenship" placeholder="citizenship Number" class="form-control" required name="cnumber" style="background-color:white;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="insert_image">Your Picture</label>
+                    <input type="file" onchange="readURL(this);" class="form-control-file"  accept="image/gif, image/jpeg, image/png" name="image" required>
+                    <image src="#" id="insert_image"/>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+            </form>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'basic.html' %}
+{% block title %}Patient Report Management{% endblock %}
+{% block body %}
+{% load static %}
+
+
+
+	<div class="home">
+		<div class="home_slider_container">
+
+			<div class="owl-carousel owl-theme home_slider">
+
+				<div class="owl-item">
+					<div class="home_slider_background">
+					<style>
+						.home_slider_background{
+						background-image:url("{%static 'Image/home_background_1.jpg' %}")
+
+						}
+
+					</style>
+					</div>
+					<div class="home_content">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_content_inner">
+										<div class="home_title"><h1>"Do as much as possible for the patient."</h1></div>
+										<div class="home_text" style="margin-top:60px;">
+											<p><font color="green">Already have an account?</font></p>
+										</div>
+										<div class="button home_button" style="">
+											<a href="login">Log In</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="home_slider_progress"></div>
+		</div>
+	</div>
+
+
+	<div class="boxes">
+		<div class="container">
+			<div class="row">
+
+				<!-- Box -->
+				<div class="col-lg-4 box_col">
+					<div class="box working_hours">
+						<div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width:50px; height:50px;"><img src="{% static 'Image/iconhospital.svg'%}" alt=""></div></div>
+						<div class="box_title">Hospital</div>
+							<div class="home_text">
+								<p>Please sign up to register your hospital in our system <font color="red"> (Hospital and Clinic only).</font></p>
+							</div>
+							<div class="button home_button"style="background-color:white; margin-top:15px;">
+								<a href="hospital"><font color="black"> Sign up</font></a>
+							</div>
+					</div>
+				</div>
+
+				<!-- Box -->
+				<div class="col-lg-4 box_col">
+					<div class="box box_appointments">
+						<div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width: 50px; height:50px;"><img src="{% static 'Image/icondoctor.svg'%}" alt=""></div></div>
+						<div class="box_title">Doctor</div>
+							<div class="home_text">
+								<p>Please sign up to register your name in our system <font color="red">(Doctor only).</font> </p>
+							</div>
+							<div class="button home_button" style="background-color:white; margin-top:45px;">
+								<a href="doctor"><font color="black"> Sign up</font></a>
+							</div>
+					</div>
+				</div>
+
+				<!-- Box -->
+				<div class="col-lg-4 box_col">
+					<div class="box box_emergency">
+						<div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width: 50px; height:50px; margin-left:-4px;"><img src="{% static 'Image/iconpatient.svg'%}" alt=""></div></div>
+						<div class="box_title">Patient</div>
+							<div class="home_text">
+								<p>Please sign up to register your name in our system <font color="red"> (Patient only).</font></p>
+							</div>
+							<div class="button home_button" style="background-color:white; margin-top:45px;">
+								<a href="patient"><font color="black"> Sign up</font></a>
+							</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- About -->
+
+	<div class="cta">
+		<div class="cta_background parallax-window" data-parallax="scroll" data-image-src="{% static 'Image/cta.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="cta_content text-center">
+						<h2>Need a personal health advisor?</h2>
+						<p>If you need any personal health consultant Remember us,We have professional health consultant. </p>
+						<div class="button cta_button"><a href="#">request a plan</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,129 @@
+  {% load static %}
+<html>
+<head>
+    {% block head %}{% endblock %}
+    <title>Login</title>
+
+    <link rel='stylesheet' href="{% static 'CSS/login.css' %}">
+<link rel="stylesheet" href=" {% static 'CSS/create_account.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'Image/copy.png' %}">
+    {% block css %}
+    <style>
+
+input[type=text], input[type=password], input[type=Email], input[type=number] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text], input[type=password], input[type=Email], input[type=number]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+
+input[type=text], input[type=password], input[type=Email], input[type=number]:placeholder {
+  color: #cccccc;
+}
+}
+
+    </style>
+    {% endblock %}
+</head>
+<body>
+
+{% if messages %}
+<div class="messages" style="background-color:#FF8040">
+    {% for message in messages %}
+    <div class="container col-md-4 " style="text-align:center;"><font size="3px" >{{ message }}</font></div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div style="background-color:#D3F8FF">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+  {% block form %}  <form action= "home" method="post" class="form-horizontal" role="form" id="designform"  enctype="multipart/form-data">{% csrf_token %}
+             {% load static %}
+            {% block image %}<img src="{% static 'Image\background2.jpg'%}" id="icon" alt="User Icon"  height=90 width=190 style="border-radius:30px;"/>{% endblock%}
+
+
+        <div class="form-group">
+             <h2>Registration</h2>
+                    <div>
+                        <input type="text" id="FullName" placeholder="Hospital Full Name*" class="form-control" name="name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="text" id="Address" placeholder="Address*" class="form-control" name="address" required>
+                    </div>
+                </div>
+                <div class="form-group" style="text-align: center;">
+                    <div>
+                        <input type="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email*" name="email"required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="password" id="password" placeholder="Password*" class="form-control" name="passd"required minlength="5">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <input type="password" id="password1" placeholder="Re Enter Password*" class="form-control" name="repassd" required minlength="5">
+                    </div>
+                </div>
+
+                <div class="form-group"  style="background-color:#D3F8FF;">
+
+                    <div>
+                        <input type="number" id="phoneNumber" placeholder="Phone number" class="form-control" name="number" style="background-color:white;">
+                        <div> <span class="home_text">Your phone number won't be disclosed anywhere </span></div>
+                    </div>
+                </div>
+
+                 <div class="form-group my-3">
+
+                    <div>
+                        <input type="number" id="pan_number" placeholder="Pan Number" class="form-control" name="pan" style="background-color:white;">
+                    </div>
+                </div>
+
+               <div class="form-group ml-3">
+                    <label for="insert_image">Your Picture*</label>
+                    <input type="file" onchange="readURL(this);" class="form-control-file"  accept="image/gif, image/jpeg, image/png" name="image" required>
+                    <img src="#" id="insert_image"/>
+               </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
+
+    {% endblock %}
+            <script src="{% static 'JS/create_account.js' %}"></script>
+            {% block forget %} {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

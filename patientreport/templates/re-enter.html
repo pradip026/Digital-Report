@@ -1,0 +1,33 @@
+{% extends 'login.html' %}
+{% block image %} {% endblock %}
+{% block action %}<form action="/pinvalid" method="post">{% csrf_token %}{% endblock %}
+{% block email %} {% endblock %}
+{% block identity%}
+
+                <div class="form-group" style="background-color:#fff;">
+
+                    <div>
+                        <div> <span class="home_text">Please Check Your Email For PIN. </span></div>
+                    </div>
+                </div>
+
+
+{% endblock %}
+{% block password %}
+    <input type="hidden" name="email" value="{{email}}">
+    <input type="number" id="password" class="fadeIn third" name="enterpin" placeholder="PIN" required maxlength="5">
+
+{% endblock %}
+
+{% block login %}
+
+			<div class="containr col-md-3" style="margin-left:160px; font-size: 32px; margin-bottom:20px;">
+				<button type="submit" class="btn btn-primary" value="{{ pin }}" name="submit">SEND</button>
+	    	</div>
+{% endblock %}
+
+</form>
+
+{% block forget %}
+
+{% endblock %}

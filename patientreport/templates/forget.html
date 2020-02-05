@@ -1,0 +1,12 @@
+{% extends "login.html"%}
+{% block image %} {% endblock %}
+{% block action %}<form action="/checkmail" method="post">{% csrf_token %}{% endblock %}
+{% block identity %} {% endblock %}
+{% block login %}
+
+    <input type="submit" class="fadeIn fourth" value="Confirm">
+
+    {% endblock %}
+{% block forget %} {% endblock %}
+{% block password %} {% endblock %}
+</form>

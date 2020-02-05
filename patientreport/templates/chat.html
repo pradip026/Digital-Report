@@ -1,0 +1,106 @@
+{% extends 'basic.html' %}
+{% load static%}
+{% block title %}Chat{% endblock %}
+{% block css %}
+<style>
+
+
+.online{
+  background-color: #58EE91;
+  margin-top:0px;
+  padding-top:0px;
+  text-align:center;
+  font-size:12pt;
+  }
+
+.off{
+  background-color:  #DC3B22 ;
+  margin-top:0px;
+  padding-top:0px;
+  text-align:center;
+  color:white;
+  font-size:12pt;
+}
+
+
+</style>
+
+{% endblock %}
+{% block back %}background-color:#e7e7e7{% endblock %}
+{% block header %}
+{% if status == 'Online' %}
+<p class="online">Status: {{ status }}</p>
+{% endif %}
+
+{% if status == 'Offline' %}
+
+<p class="off">Status: {{ status }}</p>
+{% endif %}
+{% endblock %}
+{% block body %}
+<br>
+<br>
+<div style="float:right; margin-right:20px;">
+    <div class="button home_button" style="background-color:white; margin-top:45px;">
+								<a href="/chats/{{ id }}" name="doc"><font color="black">Messages</font></a>
+	</div>
+</div>
+<div style="float:right; margin-right:20px;">
+    <div class="button home_button" style="background-color:white; margin-top:45px;">
+								<a href="/chats?query_name={{ id }}" name="doc"><font color="black">Join Room</font></a>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="container col-md-6" style="background-color:#f3f3f3; width:400px; float:left; margin-left:100px;">
+<div id="first">
+{% if doc %}
+
+
+    <b> List Of Doctors</b>
+
+        {% for item in doc %}
+
+            <ul>
+                --------------------------------------------------------------------------
+                <li><a href="/personal/{{item.id}}?query_name={{ id }}">{{item.doctorfirstname}}&nbsp;{{item.doctorlastname}}</a><img src="/media/{{item.doctorprofile}}" height="30" width="30" style="float:right; border-radius: 50%;"/> </li>
+                ---------------------------------------------------------------------
+            </ul>
+
+         {% endfor %}
+
+{% endif %}
+</div>
+</div>
+
+
+<div class="container col-md-6" style="background-color:#f3f3f3; width:400px; margin-left:800px">
+
+<div id="sec">
+ {% if pat %}
+
+    <b>List of Patients</b>
+
+        {% for item in pat %}
+            <ul>
+                ---------------------------------------------------------------------------
+                <li><a href="/personal/{{item.citizennumber}}?query_name={{ id }}" methods="post" name='patient'>{{item.patientfirstname}}&nbsp;{{item.patientlastname}}</a><img src="/media/{{item.patientprofile}}" height="30" width="30" style="float:right; border-radius: 50%;"/>{% csrf_token %} </li>
+                ---------------------------------------------------------------------
+            </ul>
+
+         {% endfor %}
+
+
+ {% endif %}
+</div>
+    </div>
+    </div>
+
+
+{% endblock %}

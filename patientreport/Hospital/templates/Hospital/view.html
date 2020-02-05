@@ -1,0 +1,24 @@
+{%extends 'Hospital/hospitallogin.html'%}
+{% if messages %}
+<div class="messages" style="background-color:#FF8040">
+    {% for message in messages %}
+	<div class="container col-md-4 " style="text-align:center;"> <font size="5px">{{ message }}</font></div>
+    {% endfor %}
+</div>
+{% endif %}
+{% block form %}
+<div class="fadeIn first">
+            {% load static %}
+            <img src="{% static 'Image\searchicon.png'%}" id="icon" alt="User Icon"  height=180 width=70/>
+             </div>
+<form action="/patient/view" method="post">{% csrf_token %}
+      <input type="number" id="login" class="fadeIn second" name="number" placeholder="Citizenship Number" required>
+      <input type="password" id="password" class="fadeIn third" name="passd" placeholder="Enter PIN" maxlength="4" minlength="4" required>
+
+        <div class="mt-4">
+        <input type="submit" class="fadeIn fourth" value="View Report">
+        </div>
+    </form>
+
+
+{% endblock %}
